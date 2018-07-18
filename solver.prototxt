@@ -1,0 +1,38 @@
+net: "train.prototxt"
+solver_type: NESTEROV
+
+display: 10
+average_loss: 50
+max_iter: 16000
+
+base_lr: 0.01
+lr_policy: "multistep"
+gamma: 0.5
+stepvalue: 200
+stepvalue: 1000
+stepvalue: 4000
+stepvalue: 8000
+stepvalue: 12000
+momentum: 0.9
+weight_decay: 0.0001
+
+snapshot: 100
+snapshot_prefix: "model/resnet50"
+
+random_seed: 0
+test_initialization: false
+
+#strategy: STRATEGY_1 | STRATEGY_4
+strategy: STRATEGY_4
+
+memory_opt: true
+#checkpoint_opt: true
+
+#mem_pool: NONE | CHAINED | CNMEM
+mem_pool: CNMEM
+cnmem_init_size: 0.8
+
+#conv_algo_select_mode: NOSELECT | GET | FIND
+conv_algo_select_mode: FIND
+conv_max_group_parallel: -1
+conv_max_workspace_size: -1
